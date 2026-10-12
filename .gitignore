@@ -1,0 +1,33 @@
+# ---- macOS ----
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# ---- 编译 / 打包产物 ----
+build/
+DerivedData/
+*.app/
+*.dmg
+*.zip
+*.dSYM/
+ModuleCache.noindex/
+SDKStatCaches.noindex/
+CompilationCache.noindex/
+XCBuildData/
+*.o
+*.pcm
+*.log
+
+# ---- Xcode 用户数据 ----
+xcuserdata/
+*.xcuserdatad/
+
+# ---- 凭据 / 签名 ----
+.env
+*.pem
+*.p12
+*.mobileprovision
+
+# ---- 测试输出 ----
+perf/results/

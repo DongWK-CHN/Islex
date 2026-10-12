@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.swift text
+*.md text
+*.icns binary
+*.png binary
+*.jpg binary
+*.dmg binary

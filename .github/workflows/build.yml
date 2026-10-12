@@ -1,0 +1,34 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 显示工具链版本
+        run: swiftc --version && sw_vers
+
+      - name: 编译校验（无私有框架变体 -D NOSMTC）
+        run: |
+          swiftc -swift-version 5 -O -target arm64-apple-macosx14.0 -D NOSMTC \
+            -framework AppKit -framework SwiftUI -framework Combine \
+            -framework Foundation -framework ServiceManagement \
+            Sources/*.swift -o /tmp/IsleX
+          ls -lh /tmp/IsleX
+
+      - name: 编译校验（带私有框架变体，SMTC）
+        run: |
+          swiftc -swift-version 5 -O -target arm64-apple-macosx14.0 \
+            -import-objc-header Resources/MediaRemoteBridge.h \
+            -F /System/Library/PrivateFrameworks -framework MediaRemote \
+            -framework AppKit -framework SwiftUI -framework Combine \
+            -framework Foundation -framework ServiceManagement \
+            Sources/*.swift -o /tmp/IsleX-SMTC
+          ls -lh /tmp/IsleX-SMTC
