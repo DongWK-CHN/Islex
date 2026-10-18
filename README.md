@@ -1,5 +1,11 @@
 # IsleX 灵屿
 
+**把 MacBook 刘海变成灵动岛。免费、开源、原生 Swift。**
+
+[**下载最新版本**](https://github.com/DongWK-CHN/IsleX/releases/latest)（macOS 14+，Apple Silicon）
+
+*演示 GIF 待补*
+
 一个挂在 macOS 刘海上的小工具。鼠标移过去展开，离开自动收起。
 
 ## 功能
@@ -49,3 +55,5 @@ bash build.sh
 ## 许可证
 
 MIT。
+
+如果这个工具帮到你，点个 Star 就是最大的支持。
